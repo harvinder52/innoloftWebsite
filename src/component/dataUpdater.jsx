@@ -24,7 +24,7 @@ const DataUpdater = () => {
   useEffect(() => {
     const fetchConfigData = async () => {
       try {
-        const appId = process.env.APP_ID || 1;
+        const appId = process.env.APP_ID || 2;
         console.log("APP_ID:", appId);
         const configData = await fetchConfiguration(appId);
         console.log(configData);

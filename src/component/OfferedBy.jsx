@@ -13,7 +13,21 @@ export default function OfferedBy() {
   let profilePicture = useSelector(
     (state) => state.details.user.profilePicture
   );
-  let address = `${company.address.street} ${company.address.house}, ${company.address.zipCode},\n${company.address.city.name}, ${company.address.country.name}`;
+  let address = null;
+
+  if (
+    company &&
+    company.address &&
+    company.address.street &&
+    company.address.house &&
+    company.address.zipCode &&
+    company.address.city &&
+    company.address.city.name &&
+    company.address.country &&
+    company.address.country.name
+  ) {
+    address = `${company.address.street} ${company.address.house}, ${company.address.zipCode},\n${company.address.city.name}, ${company.address.country.name}`;
+  }
   console.log(
     "company and street",
     useSelector((state) => state.details.company),

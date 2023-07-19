@@ -6,6 +6,9 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const HeroContainer = () => {
   const editMode = useSelector((state) => state.editMode);
+  const backgroundColor = useSelector(
+    (state) => state.configuration.configuration.mainColor
+  );
   const description = useSelector((state) => state.description);
   const title = useSelector((state) => state.description.title);
   let headers = useSelector((state) => state.description);
@@ -40,7 +43,10 @@ const HeroContainer = () => {
       <div className="relative flex items-center justify-center h-100 w-400">
         <img alt="edit" src={headers.headerImage} className="object-cover" />
         <div className="absolute top-0 left-0">
-          <button className="bg-blue-500 text-white py-4 px-4 rounded-tl-[20%] rounded-tl-none">
+          <button
+            style={{ "--custom-bg-color": backgroundColor }}
+            className="bg-[var(--custom-bg-color)] text-white py-4 px-4 rounded-tl-[20%] rounded-tl-none"
+          >
             P
           </button>
           <button

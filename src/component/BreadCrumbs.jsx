@@ -7,6 +7,10 @@ import { toggleEditMode } from "../slices/editModeSlice";
 const BreadCrumbs = () => {
   const editMode = useSelector((state) => state.editMode);
   const dispatch = useDispatch();
+  const backgroundColor = useSelector(
+    (state) => state.configuration.configuration.mainColor
+  );
+  console.log(editMode, backgroundColor, "editmode is editmode");
 
   const handleEditClick = () => {
     console.log(editMode);
@@ -49,6 +53,7 @@ const BreadCrumbs = () => {
         </ol>
       </div>
       <button
+        style={{ "--custom-bg-color": backgroundColor }}
         className="bg-[var(--custom-bg-color)] text-white py-2 px-4 self-start sm:self-end text-sm"
         type="button"
         onClick={handleEditClick}
