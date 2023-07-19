@@ -1,3 +1,9 @@
 :root {
-  --custom-bg-color: #272e71;
+  --custom-bg-color: var(--dynamic-color);
+}
+.ellipsis {
+  white-space: nowrap;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
